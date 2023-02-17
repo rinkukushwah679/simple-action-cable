@@ -1,0 +1,14 @@
+App.messages = App.cable.subscriptions.create('MessagesChannel', {  
+	connected(){
+		console.log("connted to message chall");
+	},
+	disconnected(){
+		console.log("disconnted to message chall");
+	},
+  received: function(data) {
+  	// $("#stock_name").html(data.message.title);
+  	var icon = $("<img />", {class: "day-check-icon", src: data.message.title, });
+  	$("#stock_name").html(icon);
+	console.log(data);
+  },
+});
