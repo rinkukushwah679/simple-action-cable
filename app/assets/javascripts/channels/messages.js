@@ -6,9 +6,7 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
 		console.log("disconnted to message chall");
 	},
   received: function(data) {
-  	// $("#stock_name").html(data.message.title);
-  	var icon = $("<img />", {class: "day-check-icon", src: data.message.title, });
-  	$("#stock_name").html(icon);
+  	$("#dhjdhjdfdf").append(data.message) //data show from this line 
 	console.log(data);
   },
 });
