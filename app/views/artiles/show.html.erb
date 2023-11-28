@@ -1,9 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div id="calendar"></div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @artile.title %>
-</p>
+<script type="text/javascript">
+  $(function() {
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      eventSources: [
+        {
+          url: '/date_record.json',
+          type: 'GET',
+          success: function() {
+            $(".ajax-loading").hide();
+          },
+          failure: function() {
+            $(".ajax-loading").hide();
+            alert('there was an error while fetching events!');
+          }
+        }
+      ],
 
-<%= link_to 'Edit', edit_artile_path(@artile) %> |
-<%= link_to 'Back', artiles_path %>
+      eventClick: function(event) {
+        // opens events in a popup window
+        window.open(event.url, '_blank', 'width=700,height=600');
+        return false;
+      }
+    });
+
+  });
+</script>

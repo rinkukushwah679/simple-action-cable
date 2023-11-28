@@ -1,0 +1,21 @@
+In venue addredd:
+Country code: IN:      
+Accept: AP, AR, AS, CT, GA, MP, MH, MN, NL, OR, SK, TN, UT
+
+
+
+except: AN, BR, CH, DD, DL, GJ, HR, HP, JK, JH, KA, LD, ML, MZ, PY, PB, RJ, TG, TR, UP, WB
+
+
+{
+    "error": {
+        "code": "Bad Request",
+        "message": "Something went wrong while updating the event",
+        "details": [
+            {
+                "code": "Bad Argument",
+                "message": "Invalid state code"
+            }
+        ]
+    }
+}
